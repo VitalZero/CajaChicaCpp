@@ -153,15 +153,18 @@
     <ClInclude Include="editbox.h" />
     <ClInclude Include="includes.h" />
     <ClInclude Include="IWin32Control.h" />
+    <ClInclude Include="json.h" />
     <ClInclude Include="label.h" />
     <ClInclude Include="listview.h" />
     <ClInclude Include="rebar.h" />
+    <ClInclude Include="Settings.h" />
     <ClInclude Include="toolbar.h" />
     <ClInclude Include="WndProc.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controller.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Settings.cpp" />
     <ClCompile Include="WndProc.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

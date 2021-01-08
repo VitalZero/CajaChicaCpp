@@ -1,6 +1,7 @@
 #include "WndProc.h"
 #include "controller.h"
 
+
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 {
     static Controller ctlr(hwnd);

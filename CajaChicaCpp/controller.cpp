@@ -1,4 +1,5 @@
 #include "controller.h"
+#include "Settings.h"
 
 LRESULT Controller::OnCreate(WPARAM wparam, LPARAM lparam)
 {
@@ -8,20 +9,21 @@ LRESULT Controller::OnCreate(WPARAM wparam, LPARAM lparam)
     guiFont = CreateFontIndirect(&ncm.lfMessageFont);
 
     CreateMainMenu();
-    toolBar.InsertButton("Archivo", 3000);
-    toolBar.InsertButton("Editar", 3010);
-    toolBar.Create(wnd, 0);
+    //toolBar.InsertButton("Archivo", 3000);
+    //toolBar.InsertButton("Editar", 3010);
+    //toolBar.Create(wnd, 0);
+ 
 
-    startDate.Create(wnd, 1100, 12, 42, 100, 23);
-    endDate.Create(wnd, 1110, 118, 42, 100, 23);
-    week.Create(wnd, 1120, 224, 42, 80, 23);
-    captureInvoices.Create("Facturas", wnd, 1130, 310, 41, 75, 23);
+    startDate.Create(wnd, 1100, 12, 24, 100, 23);
+    endDate.Create(wnd, 1110, 118, 24, 100, 23);
+    week.Create(wnd, 1120, 224, 24, 80, 23);
+    captureInvoices.Create("Facturas", wnd, 1130, 310, 24, 75, 23);
 
     Label line{WS_CHILD | WS_VISIBLE | WS_BORDER};
     //line.SetExStyle(WS_EX_CLIENTEDGE);
-    line.Create(wnd, -1, 12, 75, 986, 1);
+    line.Create(wnd, -1, 12, 57, 986, 1);
 
-    records.Create(wnd, 1140, 12, 86, 986, 290);
+    records.Create(wnd, 1140, 12, 68, 986, 290);
 
     {
         records.InsertColumn("Proveedor", 200, 0);
@@ -40,14 +42,14 @@ LRESULT Controller::OnCreate(WPARAM wparam, LPARAM lparam)
         index = records.AppendItem("Este es otro pedo");
     }
 
-    totalReq.Create(wnd, 1150, 141, 382, 100, 23);
-    refundPend.Create(wnd, 1160, 141, 411, 100, 23);
-    cashRemain.Create(wnd, 1170, 141, 440, 100, 23);
-    receipts.Create(wnd, 1180, 141, 469, 100, 23);
-    sum.Create(wnd, 1190, 141, 498, 100, 23);
-    loans.Create(wnd, 1200, 377, 382, 100, 23);
-    totalAsigned.Create(wnd, 1210, 377, 411, 100, 23);
-    difference.Create(wnd, 1220, 377, 440, 100, 23);
+    totalReq.Create(wnd, 1150, 141, 364, 100, 23);
+    refundPend.Create(wnd, 1160, 141, 393, 100, 23);
+    cashRemain.Create(wnd, 1170, 141, 422, 100, 23);
+    receipts.Create(wnd, 1180, 141, 451, 100, 23);
+    sum.Create(wnd, 1190, 141, 480, 100, 23);
+    loans.Create(wnd, 1200, 377, 364, 100, 23);
+    totalAsigned.Create(wnd, 1210, 377, 393, 100, 23);
+    difference.Create(wnd, 1220, 377, 422, 100, 23);
 
     ctlMan.Append(startDate);
     ctlMan.Append(endDate);
@@ -60,7 +62,7 @@ LRESULT Controller::OnCreate(WPARAM wparam, LPARAM lparam)
     ctlMan.Append(receipts);
     ctlMan.Append(sum);
     //ctlMan.Append(toolBar);
-    ctlMan.Append(rebar);
+    //ctlMan.Append(rebar);
     ctlMan.Append(loans);
     ctlMan.Append(totalAsigned);
     ctlMan.Append(difference);
@@ -69,6 +71,8 @@ LRESULT Controller::OnCreate(WPARAM wparam, LPARAM lparam)
 
     SetFocus(startDate.Window());
 
+    Settings settings;
+    settings.Load();
     return 0;
 }
 
@@ -79,17 +83,17 @@ LRESULT Controller::OnPaint(WPARAM wparam, LPARAM lparam) {
     HFONT oldFont = (HFONT)SelectObject(hdc, guiFont);
 
     SetBkMode(hdc, TRANSPARENT);
-    TextOut(hdc, 12, 24, "Fecha inicio", 12);
-    TextOut(hdc, 118, 24, "Fecha fin", 9);
-    TextOut(hdc, 224, 24, "Semana num", 10);
-    TextOut(hdc, 13, 385, "Total solicitado", 16);
-    TextOut(hdc, 13, 414, "Reembolso pendiente", 19);
-    TextOut(hdc, 13, 443, "Efectivo en caja", 16);
-    TextOut(hdc, 13, 472, "Comprobantes", 12);
-    TextOut(hdc, 13, 501, "Suma", 4);
-    TextOut(hdc, 249, 385, "Prestamos", 9);
-    TextOut(hdc, 249, 414, "Total fondo asignado", 20);
-    TextOut(hdc, 249, 443, "Diferencia", 10);
+    TextOut(hdc, 12, 6, "Fecha inicio", 12);
+    TextOut(hdc, 118, 6, "Fecha fin", 9);
+    TextOut(hdc, 224, 6, "Semana num", 10);
+    TextOut(hdc, 13, 367, "Total solicitado", 16);
+    TextOut(hdc, 13, 396, "Reembolso pendiente", 19);
+    TextOut(hdc, 13, 425, "Efectivo en caja", 16);
+    TextOut(hdc, 13, 454, "Comprobantes", 12);
+    TextOut(hdc, 13, 483, "Suma", 4);
+    TextOut(hdc, 249, 367, "Prestamos", 9);
+    TextOut(hdc, 249, 396, "Total fondo asignado", 20);
+    TextOut(hdc, 249, 425, "Diferencia", 10);
     SetBkMode(hdc, OPAQUE);
 
     SelectObject(hdc, oldFont);
