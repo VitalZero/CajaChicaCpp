@@ -1,1 +1,1 @@
-{"amount":8000.0,"owner":"JONATHAN MICHEL"}
+{"amount":8000.0,"owner":"Jonathan Michel"}

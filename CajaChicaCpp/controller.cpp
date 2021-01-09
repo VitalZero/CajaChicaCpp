@@ -71,8 +71,11 @@ LRESULT Controller::OnCreate(WPARAM wparam, LPARAM lparam)
 
     SetFocus(startDate.Window());
 
-    Settings settings;
-    settings.Load();
+    Settings &inst = Settings::GetInstance();
+    inst.SetAmount(8000);
+    inst.SetOwner("Jonathan Michel");
+    inst.Load();
+
     return 0;
 }
 

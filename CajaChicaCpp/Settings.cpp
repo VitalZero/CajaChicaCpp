@@ -5,6 +5,11 @@
 //#include "resource.h" // settings dialog
 #include "json.h"
 
+Settings& Settings::GetInstance()
+{
+	static Settings instance;
+	return instance;
+}
 
 void Settings::Load()
 {
