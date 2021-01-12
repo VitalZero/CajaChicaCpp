@@ -14,13 +14,16 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
         case WM_PAINT:
             return ctlr.OnPaint(wparam, lparam);
 
+        case WM_COMMAND:
+            return ctlr.OnCommand(wparam, lparam);
+
         case WM_NOTIFY:
         {
             NMHDR* nmhdr = (NMHDR*)lparam;
             switch(nmhdr->code)
             {
                 case TBN_DROPDOWN:
-                    return ctlr.OnTbnDropDown(wparam, lparam);
+                    //return ctlr.OnTbnDropDown(wparam, lparam);
                     break;
 
                 case NM_CUSTOMDRAW:

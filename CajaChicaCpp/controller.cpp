@@ -106,6 +106,18 @@ LRESULT Controller::OnPaint(WPARAM wparam, LPARAM lparam) {
     return 0;
 }
 
+LRESULT Controller::OnCommand(WPARAM wparam, LPARAM lparam)
+{
+    switch (LOWORD(wparam))
+    {
+        case 2050:
+            MessageBox(wnd, "Salir", "Info", 0);
+            break;
+    }
+
+    return 0;
+}
+
 LRESULT Controller::OnTbnDropDown(WPARAM wparam, LPARAM lparam)
 {
     NMTOOLBAR* lpnmtb = (NMTOOLBAR*)lparam;

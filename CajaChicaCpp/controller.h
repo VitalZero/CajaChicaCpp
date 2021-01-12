@@ -23,6 +23,7 @@ public:
 public:
     LRESULT OnCreate(WPARAM wparam, LPARAM lparam);
     LRESULT OnPaint(WPARAM wparam, LPARAM lparam);
+    LRESULT OnCommand(WPARAM wparam, LPARAM lparam);
     LRESULT OnTbnDropDown(WPARAM wparam, LPARAM lparam);
     LRESULT OnNmCustomDraw(WPARAM wparam, LPARAM lparam);
     void CreateMainMenu();
